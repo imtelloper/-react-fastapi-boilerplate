@@ -3,7 +3,8 @@ from pydantic import BaseSettings
 
 
 class Settings(BaseSettings):
-    MONGO_ADDRESS: str
+    MONGO_ID_PW: str
+    MONGO_SERVER_URL: str
     DB_NAME: str
     TABLE_TODO_LIST: str
 
@@ -22,7 +23,7 @@ DEFAULT = "default"
 """
 DEFAULT KEYWORD
 """
-MONGO_ADDRESS = settings.MONGO_ADDRESS
+MONGO_ADDRESS = settings.MONGO_ID_PW.format(settings.MONGO_SERVER_URL)
 """
 DATABASE KEYWORD
 """
